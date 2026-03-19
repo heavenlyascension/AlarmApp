@@ -180,15 +180,35 @@ function applyTheme(theme) {
 }
 
 /* ==============================
-   RINGTONE (profile default)
+   RINGTONE
    ============================== */
+   
+// Initialize click listeners for the ringtone buttons
+document.getElementById('ringtone-list').addEventListener('click', (e) => {
+  // Find the closest button element in case the user clicks the icon or name span
+  const btn = e.target.closest('.ringtone-btn');
+  
+  if (btn) {
+    const selectedTone = btn.dataset.tone;
+    selectRingtone(selectedTone);
+  }
+});
 
 function selectRingtone(tone) {
   state.ringtone = tone;
   localStorage.setItem('ringtone', tone);
-  document.querySelectorAll('#ringtone-list .ringtone-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.tone === tone);
+
+  // Update UI: Remove 'active' from all, add to the selected one
+  const buttons = document.querySelectorAll('#ringtone-list .ringtone-btn');
+  buttons.forEach(btn => {
+    if (btn.dataset.tone === tone) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
   });
+  
+  console.log("Ringtone updated to:", tone);
 }
 
 /* ==============================
