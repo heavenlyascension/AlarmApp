@@ -40,13 +40,8 @@ Crossword
    ============================== */
 
 // possible answers
-const WORDLE_ANSWERS = ['ANGEL', 'PRINCE', 'SLEEP', 'AWAKE', 'CLOCK'];
-
-// valid guesses
-const VALID_WORDS = [
-  'ANGEL','PRINCE','SLEEP','AWAKE','CLOCK',
-  'CRANE','SLATE','AUDIO','PLANT','BRICK','STONE','LIGHT'
-];
+// possible answers
+const WORDLE_ANSWERS = ['TEACH', 'LEARN', 'SLEEP', 'AWAKE', 'CLOCK'];
 
 /*
 
